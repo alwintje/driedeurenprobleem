@@ -30,6 +30,7 @@ html, body, #game{
     background: #000;
     text-align: center;
     padding-top: 100px;
+
 }
 .start #number{
     position: relative;
