@@ -6,9 +6,12 @@
 html, body, #game{
     width: 100%;
     height: 100%;
-    background: #000;
+    background: #333;
+    color: #333;
 }
-
+#game{
+    z-index: 1;
+}
 #fullscreen{
     position: fixed;
     top: 0;
@@ -16,7 +19,39 @@ html, body, #game{
     border: none;
     background: none;
     padding: 5px;
-
+    z-index: 99999;
+    color: #000;
+}
+.start{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: #000;
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+}
+.start #number{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-size: 100px;
+}
+.start #startBtn{
+    color: #FFF;
+    font-size: 30px;
+    background: #2196F3;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+.start #startBtn:hover,
+.start #startBtn:active{
+    background: #2069b0;
 }
 
 .frame{
@@ -25,10 +60,9 @@ html, body, #game{
     margin-left: 5%;
     width: 26%;
     height: 80%;
-    background: #333;
+    background: #FFF;
     display: inline-block;
     float: left;
-    overflow: hidden;
 }
 .frame .door{
     position: absolute;
@@ -37,4 +71,86 @@ html, body, #game{
     background: #ff6827;
     width: 90%;
     height: 97%;
+    -webkit-box-shadow: 5px 0 5px #000;
+    -moz-box-shadow: 5px 0 5px #000;
+    box-shadow: 2px 0 3px #000;
+    transition: all 500ms;
+    transform-origin: left;
+    z-index: 5;
+}
+.frame .door.selected{
+    background: #9e451b;
+}
+.frame .door.selected .part1{
+    background: #a56d48;
+}
+
+.frame .door .part1{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    background: #ffab6a;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 1px 0 3px #000;
+    z-index: 3;
+    transition: all 500ms;
+
+}
+.frame.open .door .part1{
+    opacity: 0;
+    transition: all 1ms;
+    transition-delay: 250ms;
+}
+
+
+.frame.open .door{
+    transform: perspective(1000px) rotateY(-100deg) translateZ(0px);
+}
+
+
+.frame .behind{
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    background: #000;
+    width: 90%;
+    height: 97%;
+    z-index: 1;
+    overflow: hidden;
+}
+.frame .behind video{
+    position: relative;
+    left: -50%;
+    width: 200%
+}
+.floor{
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 50px;
+    background: #555;
+    border-top: solid 10px #FFF;
+}
+.floor #new{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    border: none;
+    background: 0;
+    color: #000;
+    z-index: 9999999;
+}
+.floor #next{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background: 0;
+    color: #000;
+
 }

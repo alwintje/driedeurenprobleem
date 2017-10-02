@@ -8,34 +8,40 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
 
+    <script src="js/UserData.js"></script>
+
     <title>Drie deuren spel</title>
 </head>
 <body>
     <button id="fullscreen" class="fa fa-2x fa-expand"></button>
+
     <div id="game">
-        <div class="frame">
-            <div class="door">
-                <div class="part1"></div>
-                <div class="part2"></div>
-                <div class="part3"></div>
-                <div class="part4"></div>
-            </div>
+
+        <div class="start">
+            <div id="number"><?php ?></div>
+            <button id="startBtn" class="fa fa-2x fa-play"></button>
         </div>
         <div class="frame">
             <div class="door">
                 <div class="part1"></div>
-                <div class="part2"></div>
-                <div class="part3"></div>
-                <div class="part4"></div>
             </div>
+            <div class="behind"></div>
         </div>
         <div class="frame">
             <div class="door">
                 <div class="part1"></div>
-                <div class="part2"></div>
-                <div class="part3"></div>
-                <div class="part4"></div>
             </div>
+            <div class="behind"></div>
+        </div>
+        <div class="frame">
+            <div class="door ">
+                <div class="part1"></div>
+            </div>
+            <div class="behind"></div>
+        </div>
+        <div class="floor">
+            <button id="new" class="fa fa-2x fa-repeat"></button>
+            <button id="next" class="fa fa-2x fa-arrow-right"></button>
         </div>
     </div>
     <script src="js/script.js"></script>
