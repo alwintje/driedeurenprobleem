@@ -5,8 +5,8 @@ window.onload = function(){
     // }
     // console.log(document.body);
     let e = document.getElementById("game");
-
-    e.onclick = function() {
+    let fullscreen = document.getElementById("fullscreen");
+    fullscreen.onclick = function(){
 
         if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
             RunPrefixMethod(document, "CancelFullScreen");
@@ -14,8 +14,7 @@ window.onload = function(){
         else {
             RunPrefixMethod(e, "RequestFullScreen");
         }
-
-    }
+    };
 };
 
 let pfx = ["webkit", "moz", "ms", "o", ""];
