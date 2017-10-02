@@ -29,7 +29,7 @@ function createRow(el, id, fDoor, sDoor, gDoor){
     addColumn(tr, fDoor);
     addColumn(tr, sDoor);
     addColumn(tr, gDoor);
-    addColumn(tr, (fDoor === sDoor ? "Nee" : "Jaa"));
+    addColumn(tr, (fDoor === sDoor ? "Nee" : "Ja"));
     addColumn(tr, (sDoor === gDoor ? "Ja" : "Nee"));
 
     el.appendChild(tr);
