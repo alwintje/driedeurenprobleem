@@ -128,6 +128,13 @@ function start(){
     // Start playing
     let playBtn = document.getElementById("startBtn");
     playBtn.onclick = function(){
+        let e = document.getElementById("game");
+        if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+            RunPrefixMethod(document, "CancelFullScreen");
+        }
+        else {
+            RunPrefixMethod(e, "RequestFullScreen");
+        }
         let start = document.querySelector(".start");
         start.style.top = "100%";
     };
@@ -137,7 +144,7 @@ function start(){
     let goodDoor = doors[user.getGoodDoor()].parentNode.querySelector(".behind");
 
     goodDoor.appendChild(winningVideo);
-
+    winningVideo.play();
 
     for(let i=0; i < doors.length; i++){
         doors[i].dataset.num = i;
@@ -165,9 +172,11 @@ function reset(){
         doors[i].parentNode.setAttribute("class", "frame");
         doors[i].setAttribute("class", "door");
     }
-
-    // Remove video when won.
-    winningVideo.parentNode.removeChild(winningVideo);
-    setTimeout("start()", 500);
+    // Wait till doors are closed
+    setTimeout(function(){
+        // Remove video when won.
+        winningVideo.parentNode.removeChild(winningVideo);
+        start();
+    }, 500);
     // start();
 }
