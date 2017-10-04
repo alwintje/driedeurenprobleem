@@ -18,3 +18,10 @@ html, body{
     background: #EEE;
 
 }
+#toggle{
+    padding: 5px;
+    margin: 5px;
+}
+.percentages{
+    padding: 5px;
+}

@@ -7,6 +7,9 @@ let percentChanged = 0;
 let percentGoodChanged = 0;
 let percentGoodNotChanged = 0;
 
+let percentGoodChangedOfChanged = 0;
+let percentGoodNotChangedOfNotChanged = 0;
+
 let percentWrongChanged = 0;
 let percentWrongNotChanged = 0;
 
@@ -111,6 +114,8 @@ function parseData(){
     percentChanged = changed / totalAttempts * 100;
     percentGoodChanged = changedGood / totalAttempts * 100;
     percentGoodNotChanged = notChangedGood / totalAttempts * 100;
+    percentGoodChangedOfChanged = changedGood / changed * 100;
+    percentGoodNotChangedOfNotChanged = notChangedGood / ( totalAttempts - changed ) * 100;
     percentWrongChanged = changedWrong / totalAttempts * 100;
     percentWrongNotChanged = notChangedWrong / totalAttempts * 100;
     percentBetterCouldChange = changedGood / ( changedGood + changedWrong ) * 100;
@@ -119,10 +124,14 @@ function parseData(){
     document.querySelector("#percentChanged").innerText = parseInt( percentChanged + 0.5 );
     document.querySelector("#percentGoodChanged").innerText = parseInt( percentGoodChanged + 0.5 );
     document.querySelector("#percentGoodNotChanged").innerText = parseInt( percentGoodNotChanged + 0.5 );
-    document.querySelector("#percentWrongChanged").innerText = parseInt( percentWrongChanged + 0.5 );
-    document.querySelector("#percentWrongNotChanged").innerText = parseInt( percentWrongNotChanged + 0.5 );
-    document.querySelector("#percentBetterCouldChange").innerText = parseInt( percentBetterCouldChange + 0.5 );
-    document.querySelector("#percentBetterCouldNotChange").innerText = parseInt( percentBetterCouldNotChange + 0.5 );
+    document.querySelector("#percentGoodChangedOfChanged").innerText = parseInt( percentGoodChangedOfChanged + 0.5 );
+    document.querySelector("#percentGoodNotChangedOfNotChanged").innerText = parseInt( percentGoodNotChangedOfNotChanged + 0.5 );
+    // document.querySelector("#percentWrongChanged").innerText = parseInt( percentWrongChanged + 0.5 );
+    // document.querySelector("#percentWrongNotChanged").innerText = parseInt( percentWrongNotChanged + 0.5 );
+    // document.querySelector("#percentBetterCouldChange").innerText = parseInt( percentBetterCouldChange + 0.5 );
+    // document.querySelector("#percentBetterCouldNotChange").innerText = parseInt( percentBetterCouldNotChange + 0.5 );
+
+
     // console.log(changed + "/" + totalAttempts + " * " + 100);
     // console.log(percentChanged + "% changed");
     // console.log(percentGoodChanged + "% changed and got it right");
@@ -138,9 +147,9 @@ function createRow(el, id, fDoor, sDoor, gDoor){
     tr = document.createElement("tr");
 
     addColumn(tr, id);
-    addColumn(tr, fDoor);
-    addColumn(tr, sDoor);
-    addColumn(tr, gDoor);
+    addColumn(tr, fDoor+1);
+    addColumn(tr, sDoor+1);
+    addColumn(tr, gDoor+1);
     addColumn(tr, (fDoor === sDoor ? "Nee" : "Ja"));
     addColumn(tr, (sDoor === gDoor ? "Ja" : "Nee"));
 
